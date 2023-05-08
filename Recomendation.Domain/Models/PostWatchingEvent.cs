@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Recomendation.Domain.Models
 {
-    public class PostWatchingEvent : BaseModel<int>
+    public class PostWatchingEvent : BaseModel<string>
     {
         public int PostId { get; set; }
         public int UserId { get; set; }

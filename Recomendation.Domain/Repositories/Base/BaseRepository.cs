@@ -12,39 +12,43 @@ namespace Recomendation.Domain.Repositories.Base
     public abstract class BaseRepository<T, Tkey> :
         IRepository<T, Tkey>
         where T : BaseModel<Tkey>
-        where Tkey : struct
+        where Tkey : class
     {
         private readonly IMongoCollection<T> _collection;
-        private readonly IMongoClient _client;
 
-        public BaseRepository(IMongoCollection<T> collection, IMongoClient client)
+        public BaseRepository(
+            IMongoClient client,
+            string databaseName,
+            string collectionName)
         {
-            _collection = collection;
-            _client = client;
+            _collection = client.GetDatabase(databaseName)
+                .GetCollection<T>(collectionName);
         }
 
-        public async Task AddAsync(T item, CancellationToken? cancellationToken)
+        public virtual async Task AddAsync(T item, CancellationToken cancellationToken = default)
         {
+            await _collection.InsertOneAsync(item, default, cancellationToken);
         }
 
-        public Task<List<T>> GetAllAsync(int pageNumber, int pageSize)
+        public virtual Task<List<T>> GetAllAsync(int pageNumber, int pageSize)
         {
             throw new NotImplementedException();
         }
 
-        public Task<T> GetAsync(Tkey id)
+        public virtual async Task<T> GetAsync(Tkey id)
         {
-            throw new NotImplementedException();
+           return await _collection.Find(t => t.Id == id)
+                .FirstOrDefaultAsync();
         }
 
-        public Task RemoveAsync(T item, CancellationToken? cancellationToken)
+        public virtual async Task RemoveAsync(Tkey id, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await _collection.DeleteOneAsync(t => t.Id == id, cancellationToken);
         }
 
-        public Task<T> UpdateAsync(T item)
+        public virtual async Task UpdateAsync(T item)
         {
-            throw new NotImplementedException();
+            await _collection.ReplaceOneAsync(i => i.Id == item.Id, item);
         }
     }
 }
