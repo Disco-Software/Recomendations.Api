@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recomendation.Events", "Recomendation.Events\Recomendation.Events.csproj", "{C7B22A8F-D953-4C84-8391-2D06AB1F5B32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recomendation.EventListener", "Recomendation.EventListener\Recomendation.EventListener.csproj", "{EBB6C149-08FB-46A7-BB46-C1C0263238BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +36,14 @@ Global
 		{9052323B-23C3-479D-90FA-080FFDF4238B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9052323B-23C3-479D-90FA-080FFDF4238B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9052323B-23C3-479D-90FA-080FFDF4238B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B22A8F-D953-4C84-8391-2D06AB1F5B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B22A8F-D953-4C84-8391-2D06AB1F5B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B22A8F-D953-4C84-8391-2D06AB1F5B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B22A8F-D953-4C84-8391-2D06AB1F5B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBB6C149-08FB-46A7-BB46-C1C0263238BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB6C149-08FB-46A7-BB46-C1C0263238BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB6C149-08FB-46A7-BB46-C1C0263238BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB6C149-08FB-46A7-BB46-C1C0263238BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
