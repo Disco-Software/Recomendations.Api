@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Recomendation.Domain.Interfaces
 {
-    public interface IPostWatchingEventRepository : IRepository<PostWatchingEvent, string>
+    public interface IPostFeedRepository : IRepository<PostFeed, string>
     {
-
+        
     }
 }

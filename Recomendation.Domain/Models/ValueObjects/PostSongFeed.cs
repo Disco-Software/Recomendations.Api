@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Disco.Domain.Events.Dto
+namespace Recomendation.Domain.Models.ValueObjects
 {
-    public class PostSongDto
+    public class PostSongFeed
     {
         public string Name { get; set; }
 

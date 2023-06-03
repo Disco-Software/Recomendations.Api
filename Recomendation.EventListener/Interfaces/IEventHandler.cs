@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Disco.Domain.Events.Dto
+namespace Recomendation.EventListener.Interfaces
 {
-    public class LikeDto
+    public interface IEventHandler<TEvent>
     {
-        public int AccountId { get; set; }
+        Task HandleAsync(TEvent @event);
     }
 }

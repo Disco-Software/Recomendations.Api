@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recomendation.Domain.Models
+namespace Recomendation.Domain.Models.ValueObjects
 {
-    public class PostWatchingEvent : BaseModel<string>
+    public class PostVideoFeed
     {
-        public int PostId { get; set; }
-        public int UserId { get; set; }
+        public string VideoSource { get; set; }
     }
 }

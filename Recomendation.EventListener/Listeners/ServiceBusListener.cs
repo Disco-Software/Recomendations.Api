@@ -1,5 +1,8 @@
 ﻿using Azure.Messaging.ServiceBus;
+using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using Recomendation.EventListener.Interfaces;
+using Recomendation.Events.Events;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,17 +16,24 @@ namespace Recomendation.EventListener.Listeners
     {
         private readonly ServiceBusClient _serviceBusClient;
         private readonly ServiceBusProcessor _serviceBusProcessor;
+        private readonly IServiceProvider _serviceProvider;
 
-        public ServiceBusListener(string connectionString)
+        public ServiceBusListener(
+            string connectionString, 
+            IServiceProvider serviceProvider)
         {
             _serviceBusClient = new ServiceBusClient(connectionString);
             _serviceBusProcessor = _serviceBusClient.CreateProcessor("post-created-event", "recommendation-service-subscription", new ServiceBusProcessorOptions());
+            _serviceProvider = serviceProvider;
         }
 
         private async Task MessageHandler(ProcessMessageEventArgs args)
         {
-            string body = args.Message.Body.ToString();
-            Console.WriteLine($"Received: {body} from subscription.");
+            var handler = _serviceProvider.GetRequiredService<IEventHandler<PostCreatedEvent>>();
+
+            var @event = JsonConvert.DeserializeObject<PostCreatedEvent>(args.Message.Body.ToString());
+
+            await handler.HandleAsync(@event);
 
             await args.CompleteMessageAsync(args.Message);
         }

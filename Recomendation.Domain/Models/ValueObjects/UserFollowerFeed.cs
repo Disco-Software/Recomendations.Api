@@ -1,16 +1,14 @@
-﻿using System;
+﻿using Recomendation.Domain.Models.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Disco.Domain.Events.Dto
+namespace Recomendation.Domain.Models.ValueObjects
 {
-    public class CommentDto
+    public class UserFollowerFeed
     {
-        public string CommentDescription { get; set; }
-
         public int AccountId { get; set; }
-
     }
 }

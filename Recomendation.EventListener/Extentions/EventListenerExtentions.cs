@@ -18,7 +18,7 @@ namespace Recomendation.EventListener.Extentions
             {
                 var connectionString = provider.GetRequiredService<IConfiguration>().GetConnectionString("AzureServiceBusConnection");
 
-                return new ServiceBusListener(connectionString!);
+                return new ServiceBusListener(connectionString!, provider);
             });
         }
     }

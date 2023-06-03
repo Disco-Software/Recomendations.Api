@@ -1,13 +1,13 @@
-﻿using Disco.Domain.Events.Events;
+﻿using Recomendation.Domain.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Disco.Domain.Events.Dto
+namespace Recomendation.Domain.Models.ValueObjects
 {
-    public class PostImageDto
+    public class PostImageFeed
     {
         public string Source { get; set; }
     }

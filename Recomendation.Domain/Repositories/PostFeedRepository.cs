@@ -12,8 +12,8 @@ using System.Threading.Tasks;
 
 namespace Recomendation.Domain.Repositories
 {
-    internal class PostWatchingEventRepository : BaseRepository<PostWatchingEvent, string>, IPostWatchingEventRepository
+    public class PostFeedRepository : BaseRepository<PostFeed, string>, IPostFeedRepository
     {
-        public PostWatchingEventRepository(IMongoClient mongoClient, IOptions<RecommendationDatabaseSettings> options) : base(mongoClient, options.Value.DatabaseName, options.Value.PostWatchingCollectionName) { }
+        public PostFeedRepository(IMongoClient mongoClient, IOptions<RecommendationDatabaseSettings> options) : base(mongoClient, options.Value.DatabaseName, options.Value.PostFeedCollection) { }
     }
 }

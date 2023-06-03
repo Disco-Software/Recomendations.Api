@@ -1,4 +1,5 @@
-﻿using Recomendation.Events.Dtos;
+﻿using Disco.Domain.Events.Dto;
+using Recomendation.Events.Dtos;
 
 namespace Recomendation.Events.Events
 {

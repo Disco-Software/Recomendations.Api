@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recomendation.Events.Dtos
+namespace Disco.Domain.Events.Dto
 {
     public class PostVideoDto
     {
