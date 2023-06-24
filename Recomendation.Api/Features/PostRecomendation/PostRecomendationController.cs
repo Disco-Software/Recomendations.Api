@@ -6,7 +6,7 @@ using Recomendation.Domain.Models.Aggregates;
 
 namespace Recomendation.Api.Features.PostRecomendation
 {
-    [Route("post")]
+    [Route("api/recomendations/posts")]
     [ApiController]
     public class PostRecomendationController : ControllerBase
     {
