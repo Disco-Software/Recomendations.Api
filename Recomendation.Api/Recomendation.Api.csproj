@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Features\FollowingRecomendation\" />
-    <Folder Include="Features\PostRecomendation\RequestHandlers\" />
     <Folder Include="Features\StoryRecomendation\" />
   </ItemGroup>
 

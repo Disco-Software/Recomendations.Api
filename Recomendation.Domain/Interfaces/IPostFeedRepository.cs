@@ -9,6 +9,6 @@ namespace Recomendation.Domain.Interfaces
 {
     public interface IPostFeedRepository : IRepository<PostFeed, string>
     {
-        
+        public Task<List<PostFeed>> GetUserPostFeedsAsync(int accountId);
     }
 }

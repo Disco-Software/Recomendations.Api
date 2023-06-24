@@ -1,6 +1,8 @@
-﻿using Azure.Messaging.ServiceBus;
+﻿using AutoMapper;
+using Azure.Messaging.ServiceBus;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Recomendation.Domain.Models.Aggregates;
 using Recomendation.EventListener.Interfaces;
 using Recomendation.Events.Events;
 using System;

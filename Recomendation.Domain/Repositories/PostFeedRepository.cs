@@ -14,6 +14,12 @@ namespace Recomendation.Domain.Repositories
 {
     public class PostFeedRepository : BaseRepository<PostFeed, string>, IPostFeedRepository
     {
-        public PostFeedRepository(IMongoClient mongoClient, IOptions<RecommendationDatabaseSettings> options) : base(mongoClient, options.Value.DatabaseName, options.Value.PostFeedCollection) { }
+        public PostFeedRepository(IMongoClient mongoClient, IOptions<RecommendationDatabaseSettings> options) : base(mongoClient, options.Value.DatabaseName, options.Value.PostFeedCollectionName) { }
+
+        public async Task<List<PostFeed>> GetUserPostFeedsAsync(int accountId)
+        {
+            return await _collection.Find(x => x.AccountId == accountId)
+                .ToListAsync();
+        }
     }
 }

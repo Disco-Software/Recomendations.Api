@@ -14,7 +14,7 @@ namespace Recomendation.Domain.Repositories.Base
         where T : BaseModel<Tkey>
         where Tkey : class
     {
-        private readonly IMongoCollection<T> _collection;
+        protected readonly IMongoCollection<T> _collection;
 
         public BaseRepository(
             IMongoClient client,
