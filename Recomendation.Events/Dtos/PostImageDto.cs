@@ -1,4 +1,4 @@
-﻿using Disco.Domain.Events.Events;
+﻿using Disco.Domain.Events.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

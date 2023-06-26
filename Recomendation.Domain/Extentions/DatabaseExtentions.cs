@@ -24,6 +24,7 @@ namespace Recomendation.Domain.Extentions
             });
 
             services.AddSingleton<IPostWatchingEventRepository, PostWatchingEventRepository>();
+            services.AddSingleton<IPostFeedRepository, PostFeedRepository>();
 
             return services;
         }

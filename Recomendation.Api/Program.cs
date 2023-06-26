@@ -1,7 +1,9 @@
+using Microsoft.Extensions.DependencyInjection;
 using Recomendation.Domain.Configurations;
 using Recomendation.Domain.Extentions;
 using Recomendation.EventListener.Extentions;
 using Recomendation.EventListener.Interfaces;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +14,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<RecommendationDatabaseSettings>(builder.Configuration.GetSection("RecommendationDatabase"));
+
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddRepositories();
 builder.Services.AddEventListener();
+
+builder.Services.AddEventHandlers();
+builder.Services.AddAutoMapper();
 
 var app = builder.Build();
 
@@ -24,7 +31,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
